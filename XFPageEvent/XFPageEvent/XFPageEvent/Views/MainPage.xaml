@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFPageEvent.Views.MainPage"
+             Title="{Binding Title}">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms and Prism!" />
+        <Entry
+            Placeholder="請輸入密碼"
+            PlaceholderColor="Yellow"
+            Text="{Binding MyEntry}"/>
+        <Button
+            Text="Go Next"
+            Command="{Binding GoNextCommand}"/>
+    </StackLayout>
+
+</ContentPage>
