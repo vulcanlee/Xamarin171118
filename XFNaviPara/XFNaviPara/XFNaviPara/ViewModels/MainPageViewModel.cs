@@ -7,40 +7,45 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace XFNavi.ViewModels
+namespace XFNaviPara.ViewModels
 {
 
     public class MainPageViewModel : INotifyPropertyChanged, INavigationAware
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public DelegateCommand GoNextPageCommand { get; set; }
-
+        public string MyName { get; set; }
+        public string MyAccount { get; set; }
         private readonly INavigationService _navigationService;
+
+        public DelegateCommand GoNextCommand { get; set; }
 
         public MainPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
-
-            GoNextPageCommand = new DelegateCommand(async () =>
+            GoNextCommand = new DelegateCommand(() =>
             {
-                await _navigationService.NavigateAsync("NextPage");
+                NavigationParameters fooPara = new NavigationParameters();
+                fooPara.Add(nameof(MyName), MyName);
+                fooPara.Add("MyAccount", MyAccount);
+                var qs = fooPara.ToString();
+                _navigationService.NavigateAsync("NextPage", fooPara);
+                //_navigationService.NavigateAsync("NextPage"+fooPara.ToString());
             });
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
         {
-            Console.WriteLine($"  ------------  MainPage OnNavigatedFrom");
+
         }
 
         public void OnNavigatingTo(NavigationParameters parameters)
         {
-            Console.WriteLine($"  ------------  MainPage OnNavigatingTo");
+
         }
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            Console.WriteLine($"  ------------  MainPage OnNavigatedTo");
+
         }
 
     }

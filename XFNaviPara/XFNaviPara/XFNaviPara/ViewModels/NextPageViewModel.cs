@@ -6,40 +6,44 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace XFNavi.ViewModels
+namespace XFNaviPara.ViewModels
 {
 
     public class NextPageViewModel : INotifyPropertyChanged, INavigationAware
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public string Title { get; set; }
-        public DelegateCommand GoBackCommand { get; set; }
 
+        public string MyName { get; set; }
+        public string MyAccount { get; set; }
         private readonly INavigationService _navigationService;
 
         public NextPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
 
-            GoBackCommand = new DelegateCommand(() =>
-            {
-                _navigationService.GoBackAsync();
-            });
+            //_navigationService.GoBackAsync();
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
         {
-            Console.WriteLine($"  ------------  NextPage OnNavigatedFrom");
+
         }
 
         public void OnNavigatingTo(NavigationParameters parameters)
         {
-            Console.WriteLine($"  ------------  NextPage OnNavigatingTo");
+
         }
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            Console.WriteLine($"  ------------  NextPage OnNavigatedTo");
+            if (parameters.ContainsKey(nameof(MyName)))
+            {
+                MyName = parameters[nameof(MyName)] as string;
+            }
+            if (parameters.ContainsKey("MyAccount"))
+            {
+                MyAccount = parameters["MyAccount"] as string;
+            }
         }
 
     }
