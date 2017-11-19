@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFCustVM.Views.MainPage"
+             Title="{Binding Title}"
+             xmlns:pm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             pm:ViewModelLocator.AutowireViewModel="False"
+             xmlns:vm="clr-namespace:XFCustVM.ViewModels"
+             >
+    <ContentPage.BindingContext>
+        <vm:NewViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="{Binding Title}" />
+        <Button x:Name="MyButton" Text="Change" Clicked="OnChanged"/>
+    </StackLayout>
+
+</ContentPage>
