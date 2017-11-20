@@ -53,7 +53,7 @@ Day2
 |XFCustVM|自訂ViewModel類別練習|
 |XFDynamicMenu|動態兩階功能表練習|
 
-[Day2 課後作業](https://github.com/vulcanlee/Xamarin170704/blob/master/Homework%20Day2.md)
+[Day2 課後作業](https://github.com/vulcanlee/Xamarin171118/blob/master/Homework%20Day2.md)
 
 Day3
 
@@ -90,7 +90,7 @@ Day3
 |XFCtrlTemplate|控制項樣板之應用(客製化 ContentPage頁面)|
 |||
 
-[Day3 課後作業](https://github.com/vulcanlee/Xamarin170704/blob/master/Homework%20Day3.md)
+[Day3 課後作業](https://github.com/vulcanlee/Xamarin171118/blob/master/Homework%20Day3.md)
 
 Day4
 
@@ -125,7 +125,7 @@ Day4
 |XFConvertBack|數值轉換器 ConvertBack|
 |XFMoreGesture|擴充其他手勢操作|
 
-[Day4 課後作業](https://github.com/vulcanlee/Xamarin170704/blob/master/Homework%20Day4.md)
+[Day4 課後作業](https://github.com/vulcanlee/Xamarin171118/blob/master/Homework%20Day4.md)
 
 HW : XFVisualTree 設計一個輔助除錯的附加屬性；可以隨時得知當時的VisualElement 的 BindingContext 是甚麼類型的物件；另外，可以查看這個 Element 的繼承階層架構。
 
@@ -142,6 +142,6 @@ Day5
 |||
 |||
 
-[Day5 課後作業](https://github.com/vulcanlee/Xamarin170704/blob/master/Homework%20Day5.md)
+[Day5 課後作業](https://github.com/vulcanlee/Xamarin171118/blob/master/Homework%20Day5.md)
 
 
