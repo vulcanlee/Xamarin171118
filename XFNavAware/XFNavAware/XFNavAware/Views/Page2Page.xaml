@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="XFNavAware.Views.Page2Page"
+             Title="Page2"
+             BackgroundColor="HotPink">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms and Prism!" />
+        <Button Text="返回無參數"
+                Command="{Binding GoBackCommand}"/>
+        <Button Text="返回有參數"
+                Command="{Binding GoBackParaCommand}"/>
+        <Button Text="回首頁無參數"
+                Command="{Binding GoHomeCommand}"/>
+        <Button Text="回首頁有參數"
+                Command="{Binding GoHomeParaCommand}"/>
+    </StackLayout>
+</ContentPage>
