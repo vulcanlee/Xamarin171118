@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             x:Class="XFPageAppear.Views.Page1Page"
+             Title="Page1"
+             BackgroundColor="HotPink">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Show" Command="{Binding ShowLogCommand}"/>
+        <ToolbarItem Text="Reset" Command="{Binding ResetLogCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding AppearingCommand}"/>
+        <behavior:EventToCommandBehavior
+            EventName="Disappearing"
+            Command="{Binding DisappearingCommand}"/>
+    </ContentPage.Behaviors>
+
+    <StackLayout
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <Button Text="Go Back" Command="{Binding GoBackCommand}"/>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFPageAppear.Views.MainPage"
+             xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             Title="MVVM捕捉顯示與隱藏事件">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Show" Command="{Binding ShowLogCommand}"/>
+        <ToolbarItem Text="Reset" Command="{Binding ResetLogCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding AppearingCommand}"/>
+        <behavior:EventToCommandBehavior
+            EventName="Disappearing"
+            Command="{Binding DisappearingCommand}"/>
+    </ContentPage.Behaviors>
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms and Prism!" />
+        <Button Text="Page1" Command="{Binding GoPage1Command}"/>
+    </StackLayout>
+
+</ContentPage>
