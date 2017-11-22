@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XFXAML"
+             x:Class="XFXAML.MainPage">
+    <ContentPage.Content>
+        <StackLayout
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            >
+            <Entry
+                x:Name="MyEntry"
+                Placeholder="請輸入你的答案"/>
+            <Label
+                x:Name="MyLabel"/>
+            <Button
+                x:Name="MyButton"
+                Text="送出"
+                Clicked="MyButton_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
