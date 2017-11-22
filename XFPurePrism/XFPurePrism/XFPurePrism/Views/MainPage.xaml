@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFPurePrism.Views.MainPage"
+             Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <StackLayout
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            >
+            <Entry
+                Text="{Binding MyEntry}"
+                Placeholder="請輸入你的答案"/>
+            <Label
+                Text="{Binding MyLabel}"
+                />
+            <Button
+                Text="送出"
+                Command="{Binding MyButtonCommand}"
+                />
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
