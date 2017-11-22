@@ -1,6 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,52 +16,62 @@ namespace XFNavAware.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         public DelegateCommand GoPage2Command { get; set; }
+        public DelegateCommand ResetLogCommand { get; set; }
+        public DelegateCommand ShowLogCommand { get; set; }
 
         private readonly INavigationService _navigationService;
 
-        public Page1PageViewModel(INavigationService navigationService)
+        public readonly IPageDialogService _dialogService;
+        public Page1PageViewModel(INavigationService navigationService,
+            IPageDialogService dialogService)
         {
             _navigationService = navigationService;
 
+            _dialogService = dialogService;
             GoPage2Command = new DelegateCommand(() =>
             {
                 var fooPara = new NavigationParameters();
                 fooPara.Add("MyData", "Come from Page1");
                 _navigationService.NavigateAsync("Page2Page", fooPara);
             });
+            ResetLogCommand = new DelegateCommand(() =>
+            {
+                MainHelper.NavigationLogs = "";
+            });
+            ShowLogCommand = new DelegateCommand(async () =>
+            {
+                await MainHelper.ShowLog(_dialogService);
+            });
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
         {
-            Console.WriteLine($"{Environment.NewLine}");
-            Console.WriteLine($"Page1 OnNavigatedFrom");
+            MainHelper.WriteLog($"Page1 OnNavigatedFrom");
             if (parameters.CurrentParameters() != "")
             {
-                Console.WriteLine($"Page1 OnNavigatedFrom Parameter:\r\n{parameters.CurrentParameters()}");
+                MainHelper.WriteLog($"Page1 OnNavigatedFrom Parameter:\r\n{parameters.CurrentParameters()}");
             }
-            Console.WriteLine($"{Environment.NewLine}");
+            MainHelper.WriteLog($"");
         }
 
         public void OnNavigatingTo(NavigationParameters parameters)
         {
-            Console.WriteLine($"{Environment.NewLine}");
-            Console.WriteLine($"Page1 OnNavigatingTo");
+            MainHelper.WriteLog($"Page1 OnNavigatingTo");
             if (parameters.CurrentParameters() != "")
             {
-                Console.WriteLine($"Page1 OnNavigatingTo Parameter:\r\n{parameters.CurrentParameters()}");
+                MainHelper.WriteLog($"Page1 OnNavigatingTo Parameter:\r\n{parameters.CurrentParameters()}");
             }
-            Console.WriteLine($"{Environment.NewLine}");
+            MainHelper.WriteLog($"");
         }
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            Console.WriteLine($"{Environment.NewLine}");
-            Console.WriteLine($"Page1 OnNavigatedTo");
+            MainHelper.WriteLog($"Page1 OnNavigatedTo");
             if (parameters.CurrentParameters() != "")
             {
-                Console.WriteLine($"Page1 OnNavigatedTo Parameter:\r\n{parameters.CurrentParameters()}");
+                MainHelper.WriteLog($"Page1 OnNavigatedTo Parameter:\r\n{parameters.CurrentParameters()}");
             }
-            Console.WriteLine($"{Environment.NewLine}");
+            MainHelper.WriteLog($"");
         }
 
     }

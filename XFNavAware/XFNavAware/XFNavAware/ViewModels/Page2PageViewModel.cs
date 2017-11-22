@@ -1,6 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,12 +20,18 @@ namespace XFNavAware.ViewModels
         public DelegateCommand GoBackParaCommand { get; set; }
         public DelegateCommand GoHomeCommand { get; set; }
         public DelegateCommand GoHomeParaCommand { get; set; }
+        public DelegateCommand ResetLogCommand { get; set; }
+        public DelegateCommand ShowLogCommand { get; set; }
 
         private readonly INavigationService _navigationService;
 
-        public Page2PageViewModel(INavigationService navigationService)
+        public readonly IPageDialogService _dialogService;
+        public Page2PageViewModel(INavigationService navigationService,
+            IPageDialogService dialogService)
         {
             _navigationService = navigationService;
+
+            _dialogService = dialogService;
             GoBackCommand = new DelegateCommand(() =>
             {
                 _navigationService.GoBackAsync();
@@ -45,39 +52,44 @@ namespace XFNavAware.ViewModels
                 fooPara.Add("MyReturnData", "Return from Page2");
                 _navigationService.GoBackToRootAsync(fooPara);
             });
+            ResetLogCommand = new DelegateCommand(() =>
+            {
+                MainHelper.NavigationLogs = "";
+            });
+            ShowLogCommand = new DelegateCommand(async () =>
+            {
+                await MainHelper.ShowLog(_dialogService);
+            });
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
         {
-            Console.WriteLine($"{Environment.NewLine}");
-            Console.WriteLine($"Page2 OnNavigatedFrom");
+            MainHelper.WriteLog($"Page2 OnNavigatedFrom");
             if(parameters.CurrentParameters()!="")
             {
-                Console.WriteLine($"Page2 OnNavigatedFrom Parameter:\r\n{parameters.CurrentParameters()}");
+                MainHelper.WriteLog($"Page2 OnNavigatedFrom Parameter:\r\n{parameters.CurrentParameters()}");
             }
-            Console.WriteLine($"{Environment.NewLine}");
+            MainHelper.WriteLog($"");
         }
 
         public void OnNavigatingTo(NavigationParameters parameters)
         {
-            Console.WriteLine($"{Environment.NewLine}");
-            Console.WriteLine($"Page2 OnNavigatingTo");
+            MainHelper.WriteLog($"Page2 OnNavigatingTo");
             if (parameters.CurrentParameters() != "")
             {
-                Console.WriteLine($"Page2 OnNavigatingTo Parameter:\r\n{parameters.CurrentParameters()}");
+                MainHelper.WriteLog($"Page2 OnNavigatingTo Parameter:\r\n{parameters.CurrentParameters()}");
             }
-            Console.WriteLine($"{Environment.NewLine}");
+            MainHelper.WriteLog($"");
         }
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            Console.WriteLine($"{Environment.NewLine}");
-            Console.WriteLine($"Page2 OnNavigatedTo");
+            MainHelper.WriteLog($"Page2 OnNavigatedTo");
             if (parameters.CurrentParameters() != "")
             {
-                Console.WriteLine($"Page2 OnNavigatedTo Parameter:\r\n{parameters.CurrentParameters()}");
+                MainHelper.WriteLog($"Page2 OnNavigatedTo Parameter:\r\n{parameters.CurrentParameters()}");
             }
-            Console.WriteLine($"{Environment.NewLine}");
+            MainHelper.WriteLog($"");
         }
 
     }

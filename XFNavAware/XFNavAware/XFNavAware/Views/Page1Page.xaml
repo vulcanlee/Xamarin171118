@@ -7,6 +7,12 @@
              Title="Page1"
              BackgroundColor="GreenYellow">
 
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Show" Command="{Binding ShowLogCommand}"/>
+        <ToolbarItem Text="Reset" Command="{Binding ResetLogCommand}"/>
+    </ContentPage.ToolbarItems>
+
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <Label Text="Welcome to Xamarin Forms and Prism!" />
         <Button Text="切換 Page2"
