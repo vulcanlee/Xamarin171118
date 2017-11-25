@@ -3,17 +3,51 @@ using Prism.Mvvm;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
 namespace XFGrid.ViewModels
 {
-    public class MainPageViewModel : ViewModelBase
+
+    public class MainPageViewModel : INotifyPropertyChanged, INavigationAware
     {
-        public MainPageViewModel(INavigationService navigationService) 
-            : base (navigationService)
+        public event PropertyChangedEventHandler PropertyChanged;
+        public double CurrentFontSize { get; set; } = 20;
+
+        private readonly INavigationService _navigationService;
+
+        public DelegateCommand LargeCommand { get; set; }
+        public DelegateCommand SmallCommand { get; set; }
+
+        public MainPageViewModel(INavigationService navigationService)
         {
-            Title = "Main Page";
+            _navigationService = navigationService;
+
+            LargeCommand = new DelegateCommand(() =>
+            {
+                CurrentFontSize += 4;
+            });
+            SmallCommand = new DelegateCommand(() =>
+            {
+                CurrentFontSize -= 4;
+            });
         }
+
+        public void OnNavigatedFrom(NavigationParameters parameters)
+        {
+
+        }
+
+        public void OnNavigatingTo(NavigationParameters parameters)
+        {
+
+        }
+
+        public void OnNavigatedTo(NavigationParameters parameters)
+        {
+
+        }
+
     }
 }

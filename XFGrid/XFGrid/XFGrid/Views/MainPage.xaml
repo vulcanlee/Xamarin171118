@@ -43,7 +43,32 @@
             Margin="0,0,30,0"
             Text="小"
             Command="{Binding SmallCommand}"/>
-        
-        
+
+        <BoxView
+            Color="Blue"
+            Grid.Row="1" Grid.Column="1"
+            HorizontalOptions="Fill" VerticalOptions="Fill"/>
+        <Label
+            Grid.Row="1" Grid.Column="1"
+            Text="Row=1&#x0a;Column=1"
+            FontSize="20"
+            HorizontalOptions="Center" VerticalOptions="Center"
+            TextColor="White"/>
+
+        <BoxView
+            Color="Green"
+            Grid.Row="3" Grid.Column="0"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="Fill" VerticalOptions="Fill"/>
+        <Label
+            Grid.Row="3" Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Text="ColumnSpan=2&#x0a;Row=2&#x0a;Column=0"
+            FontSize="{Binding CurrentFontSize}"
+            HorizontalOptions="Center"
+            TextColor="White"/>
+
+
     </Grid>
+
 </ContentPage>
