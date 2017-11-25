@@ -9,11 +9,25 @@
 
     <Grid
         >
-        <Button
+        <StackLayout
+            >
+            <Entry
+                Text="{Binding Acc}"/>
+            <Entry
+                IsPassword="True"
+                Text="{Binding Password}"/>
+            <Button
             HorizontalOptions="Center" VerticalOptions="Center"
             Margin="30,0"
             Text="登入"
             Command="{Binding LoginCommand}"/>
+          
+        </StackLayout>
+
+        <BoxView
+            Color="Black"
+            Opacity="0.8"
+            IsVisible="{Binding IsChecking}"/>
     </Grid>
 
 </ContentPage>

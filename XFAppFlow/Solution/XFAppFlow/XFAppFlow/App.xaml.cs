@@ -23,7 +23,14 @@ namespace XFAppFlow
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("LoginPage");
+            if(App.Current.Properties.ContainsKey("Acc"))
+            {
+                await NavigationService.NavigateAsync("xf:///MDPage/NaviPage/MainPage");
+            }
+            else
+            {
+                await NavigationService.NavigateAsync("LoginPage");
+            }
         }
 
         protected override void RegisterTypes()

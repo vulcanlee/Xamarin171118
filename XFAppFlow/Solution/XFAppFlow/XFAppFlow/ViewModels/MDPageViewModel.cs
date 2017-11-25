@@ -45,6 +45,8 @@ namespace XFAppFlow.ViewModels
                         var fooAnswer = await _dialogService.DisplayAlertAsync("警告", "您確定要登出嗎?", "確定", "取消");
                         if (fooAnswer == true)
                         {
+                            App.Current.Properties.Remove("Acc");
+                            await App.Current.SavePropertiesAsync();
                             await _navigationService.NavigateAsync("xf:///LoginPage");
                         }
                         break;

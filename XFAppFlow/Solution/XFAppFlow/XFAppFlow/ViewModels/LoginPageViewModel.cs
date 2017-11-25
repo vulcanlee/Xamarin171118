@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace XFAppFlow.ViewModels
 {
@@ -14,16 +15,28 @@ namespace XFAppFlow.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         private readonly INavigationService _navigationService;
-
+        public bool IsChecking { get; set; } = false;
+        public string Acc { get; set; } = "";
+        public string Password { get; set; } = "";
         public DelegateCommand LoginCommand { get; set; }
 
         public LoginPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
 
-            LoginCommand = new DelegateCommand(() =>
+            LoginCommand = new DelegateCommand(async () =>
             {
-                _navigationService.NavigateAsync("xf:///MDPage/NaviPage/MainPage");
+                if (Acc == "123" && Password == "123")
+                {
+                    IsChecking = true;
+                    await Task.Delay(3000);
+                    App.Current.Properties["Acc"] = Acc;
+                    App.Current.Properties["PW"] = Password;
+                    await App.Current.SavePropertiesAsync();
+
+                    IsChecking = false;
+                    await _navigationService.NavigateAsync("xf:///MDPage/NaviPage/MainPage");
+                }
             });
         }
 
