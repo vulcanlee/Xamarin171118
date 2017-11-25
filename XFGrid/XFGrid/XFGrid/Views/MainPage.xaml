@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFGrid.Views.MainPage"
+             Title="{Binding Title}">
+
+
+    <Grid
+        RowSpacing="0"
+        ColumnSpacing="0"
+        >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <BoxView
+            Color="Pink"
+            HorizontalOptions="Fill" VerticalOptions="Fill"
+            Grid.Row="0" Grid.Column="0"/>
+        <BoxView
+            Color="Yellow"
+            WidthRequest="50"
+            HeightRequest="50"
+            HorizontalOptions="End" VerticalOptions="End"
+            Grid.Row="0" Grid.Column="0"/>
+
+        <Button
+            Grid.Row="2" Grid.Column="0"
+            HorizontalOptions="Center" VerticalOptions="Center"
+            Text="大"
+            Command="{Binding LargeCommand}"/>
+        <Button
+            Grid.Row="2" Grid.Column="1"
+            HorizontalOptions="End" VerticalOptions="Start"
+            Margin="0,0,30,0"
+            Text="小"
+            Command="{Binding SmallCommand}"/>
+        
+        
+    </Grid>
+</ContentPage>
