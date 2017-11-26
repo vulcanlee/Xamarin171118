@@ -81,7 +81,7 @@ namespace XFListView.ViewModels
                         var bar = MyTaskItemList.FirstOrDefault(x => x.MyTaskName == fooObj.MyTaskName);
                         if(bar != null)
                         {
-                            MyTaskItemList.Remove(fooObj);
+                            MyTaskItemList.Remove(bar);
                         }
                         break;
                     case "S":
