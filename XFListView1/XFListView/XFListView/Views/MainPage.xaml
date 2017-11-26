@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFListView.Views.MainPage"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             Title="{Binding Title}">
+
+
+    <Grid
+        >
+        <ListView
+            ItemsSource="{Binding MyTaskItemList}"
+            SelectedItem="{Binding MyTaskItemSelected}"
+            HasUnevenRows="True"
+            IsPullToRefreshEnabled="True" 
+            RefreshCommand="{Binding MyTaskRefreshCommand}"
+            IsRefreshing="{Binding RefreshingStatus}"
+            >
+            <ListView.Behaviors>
+                <behaviors:EventToCommandBehavior
+                    EventName="ItemTapped"
+                    Command="{Binding MyTaskItemSelectedCommand}"/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <BoxView Color="White"/>
+                            <StackLayout
+                            Margin="0,20,0,20"
+                            Orientation="Vertical">
+                                <Label
+                                Text="{Binding MyTaskName}"
+                                FontSize="20"
+                                TextColor="Pink"/>
+                                <Label
+                                Text="{Binding MyTaskStatus}"
+                                FontSize="16"
+                                TextColor="Blue"/>
+                                <!--這裡使用了 StringFormat 來進行顯示格式轉換-->
+                                <Label
+                                Text="{Binding MyTaskDate, StringFormat='{0:yyyy-MM-dd}'}"
+                                FontSize="14"
+                                TextColor="Green"/>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>
