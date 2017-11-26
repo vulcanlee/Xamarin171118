@@ -18,6 +18,9 @@ namespace XFListView.ViewModels
 
         public DelegateCommand DeleteCommand { get; set; }
         public DelegateCommand SaveCommand { get; set; }
+        public bool DeleteBtnVbl { get; set; } = true;
+        public int SaveCommandColumn { get; set; } = 1;
+        public int SaveCommandColumnSpan { get; set; } = 1;
 
         public TaskDetailPageViewModel(INavigationService navigationService)
         {
@@ -60,6 +63,18 @@ namespace XFListView.ViewModels
             if (parameters.ContainsKey("Action"))
             {
                 RecordActionSymbol = parameters["Action"] as string;
+                if (RecordActionSymbol == "A")
+                {
+                    DeleteBtnVbl = false;
+                    SaveCommandColumn = 0;
+                    SaveCommandColumnSpan = 2;
+                }
+                else
+                {
+                    DeleteBtnVbl = true;
+                    SaveCommandColumn = 1;
+                    SaveCommandColumnSpan = 1;
+                }
             }
 
 

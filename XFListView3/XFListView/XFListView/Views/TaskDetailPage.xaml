@@ -49,9 +49,11 @@
                     BackgroundColor="Blue"
                     TextColor="White"
                     Command="{Binding DeleteCommand}"
+                    IsVisible="{Binding DeleteBtnVbl}"
                     />
                 <Button
-                    Grid.Column="1"
+                    Grid.Column="{Binding SaveCommandColumn}"
+                    Grid.ColumnSpan="{Binding SaveCommandColumnSpan}"
                     Text="儲存"
                     BackgroundColor="Red"
                     TextColor="White"
