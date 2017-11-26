@@ -11,12 +11,15 @@
             ItemsSource="{Binding MyTaskItemList}"
             SelectedItem="{Binding MyTaskItemSelected}"
             HasUnevenRows="True"
+            IsPullToRefreshEnabled="True" 
+            RefreshCommand="{Binding MyTaskRefreshCommand}"
+            IsRefreshing="{Binding RefreshingStatus}"
             >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid>
-                            <BoxView Color="Transparent"/>
+                            <BoxView Color="White"/>
                             <StackLayout
                             Margin="0,20,0,20"
                             Orientation="Vertical">

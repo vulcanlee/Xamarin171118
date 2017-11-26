@@ -16,15 +16,35 @@ namespace XFListView.ViewModels
     public class MainPageViewModel : INotifyPropertyChanged, INavigationAware
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
+        public int RefreshIndex { get; set; } = 0;
         private readonly INavigationService _navigationService;
-
+        public bool RefreshingStatus { get; set; }
         public MyTaskItem MyTaskItemSelected { get; set; }
         public ObservableCollection<MyTaskItem> MyTaskItemList { get; set; } = new ObservableCollection<MyTaskItem>();
+
+        public DelegateCommand MyTaskRefreshCommand { get; set; }
+
         public MainPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
 
+            MyTaskRefreshCommand = new DelegateCommand(() =>
+            {
+                RefreshIndex++;
+                MyTaskItemList.Clear();
+                MyTaskRepository fooMyTaskRepository = new MyTaskRepository();
+                var fooTasks = fooMyTaskRepository.GetMyTask();
+                foreach (var item in fooTasks)
+                {
+                    MyTaskItemList.Add(new MyTaskItem
+                    {
+                        MyTaskName = $"{RefreshIndex} {item.MyTaskName}",
+                        MyTaskDate = item.MyTaskDate,
+                        MyTaskStatus = item.MyTaskStatus,
+                    });
+                }
+                RefreshingStatus = false;
+            });
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
