@@ -49,14 +49,14 @@
                     BackgroundColor="Blue"
                     TextColor="White"
                     Command="{Binding DeleteCommand}"
-                    IsVisible="{Binding DeleteBtnVbl}"/>
+                    />
                 <Button
-                    Grid.Column="{Binding SaveCommandColumn}"
-                    Grid.ColumnSpan="{Binding SaveCommandColumnSpan}"
+                    Grid.Column="1"
                     Text="儲存"
                     BackgroundColor="Red"
                     TextColor="White"
-                    Command="{Binding SaveCommand}"/>
+                    Command="{Binding SaveCommand}"
+                    />
             </Grid>
         </StackLayout>
     </ScrollView>
