@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFControls.Views.MainPage"
+             Title="{Binding Title}"
+             NavigationPage.HasNavigationBar="False">
+
+    <ScrollView
+        Orientation="Vertical">
+        <StackLayout>
+            <ActivityIndicator
+                Color="LimeGreen"
+                IsRunning="True"
+                WidthRequest="100" HeightRequest="100"/>
+
+            <BoxView
+                Color="#996ee5"
+                WidthRequest="150" HeightRequest="50" />
+
+            <DatePicker
+                Date="2014/8/8"/>
+
+            <Editor
+                BackgroundColor="LightGoldenrodYellow"
+                HeightRequest="100"
+                Text="Vulcan&#x0a;Lee&#x0a;"/>
+
+            <Button
+                Text="Login"
+                BackgroundColor="Black"
+                TextColor="#AAffffff"
+                FontSize="40"/>
+
+            <Entry
+                Placeholder="請輸入幸運數字"
+                PlaceholderColor="#ed7474"
+                Keyboard="Numeric"/>
+
+            <Image
+                WidthRequest="300" HeightRequest="300"
+                Source="icon.png"/>
+
+            <Label Text="TailTruncation Welcome to Xamarin Forms and Prism!"
+                   LineBreakMode="TailTruncation"
+                   TextColor="Coral"
+                   FontSize="30"/>
+            <Label Text="TailTruncation Welcome to Xamarin Forms and Prism!"
+                   LineBreakMode="MiddleTruncation"
+                   TextColor="Green"
+                   FontSize="30"/>
+            <Label Text="WordWrap Welcome to Xamarin Forms and Prism!"
+                   LineBreakMode="WordWrap"
+                   TextColor="Orange"
+                   FontSize="30"/>
+            <Label Text="NoWrap Welcome to Xamarin Forms and Prism!"
+                   LineBreakMode="NoWrap"
+                   TextColor="Gray"
+                   FontSize="30"/>
+
+            <Picker
+                >
+                <Picker.Items>
+                    <x:String>Red</x:String>
+                    <x:String>Blue</x:String>
+                    <x:String>Green</x:String>
+                    <x:String>Yellow</x:String>
+                    <x:String>Purple</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <ProgressBar
+                Progress="0.7"
+                />
+
+            <Slider
+               Maximum="300" 
+                Minimum="100"
+                Value="150"/>
+
+            <Stepper
+                Increment="3.7"
+                Maximum="150"
+                Minimum="80"
+                Value="100"/>
+
+            <TimePicker
+                Time="17:33:59"/>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
