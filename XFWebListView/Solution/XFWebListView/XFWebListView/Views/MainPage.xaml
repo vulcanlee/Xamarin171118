@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFWebListView.Views.MainPage"
+             Title="讀取顯示網路集合資料">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Refresh" Command="{Binding RefreshCommand}"/>
+    </ContentPage.ToolbarItems>
+    
+    <Grid>
+        <ListView
+            ItemsSource="{Binding ScenicSpotList}"  
+            HasUnevenRows="True"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding orgname}" TextColor="Black" />
+                            <Label Text="{Binding title}" TextColor="Red" FontSize="18" LineBreakMode="TailTruncation" />
+                            <Label Text="{Binding description}" TextColor="Green" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!--忙碌中的遮罩-->
+        <Grid
+            IsVisible="{Binding ShowProcessingMask}"
+            >
+            <BoxView
+            HorizontalOptions="Fill" VerticalOptions="Fill"
+            Color="Black"
+            Opacity="0.6"
+            />
+            <Label Text="請稍後，正在取得資料"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   TextColor="White"
+                   FontSize="30"/>
+            <ActivityIndicator
+                WidthRequest="80" HeightRequest="80"
+                Margin="0,130,0,0"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                IsRunning="True"/>
+        </Grid>
+
+    </Grid>
+
+</ContentPage>
