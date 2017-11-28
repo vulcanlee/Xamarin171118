@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:userControls="clr-namespace:XFContentView.UserControls"
+             x:Class="XFContentView.Views.MainPage"
+             Title="使用 ContentView 組合新控制項">
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="End">
+        <Label Text="{Binding Title}" />
+        <Grid
+            Margin="30,10"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <userControls:MyButton
+                Grid.Column="0"
+                BindingContext="{Binding DeleteButton}"/>
+
+            <userControls:MyButton
+                Grid.Column="1"
+                BindingContext="{Binding SaveButton}"/>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
