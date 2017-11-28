@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:userControl="clr-namespace:XFUserPanel.UserControls"
+             x:Class="XFUserPanel.Views.MainPage"
+             Title="客製按鈕面板應用 ">
+
+    <Grid>
+        <userControl:MyMenuPanel
+            HeightRequest="50"
+            VerticalOptions="Start" HorizontalOptions="Fill"
+            BindingContext="{Binding MyMenuPanelVMObject}"/>
+    </Grid>
+
+</ContentPage>
