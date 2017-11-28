@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:converters="clr-namespace:XFSchedule.Converters"
+             x:Class="XFSchedule.Views.MainPage"
+             Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:NotBooleanConverter x:Key="NotBooleanConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid
+        RowSpacing="0" ColumnSpacing="0"
+        >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Image 
+            Grid.Row="1"
+            Aspect="AspectFill" 
+            HorizontalOptions="Fill" 
+            VerticalOptions="Start" 
+            Source="YogaImage.png" />
+        <!--這張圖片用於產生有漸層效果的遮罩-->
+        <Image
+            Grid.Row="1"
+            Aspect="Fill" 
+            HorizontalOptions="Fill" 
+            VerticalOptions="Fill"
+            Source="FadeToWhite.png" />
+
+        <StackLayout 
+            Grid.Row="0" Grid.RowSpan="2"
+            Margin="15"
+            HorizontalOptions="Fill" VerticalOptions="Fill">
+            <ListView
+                ItemsSource="{Binding Classes}"
+                SelectedItem="{Binding ClassesSelectedItem, Mode=TwoWay}"
+                HasUnevenRows="True"
+                SeparatorVisibility="None"
+                BackgroundColor="Transparent"
+                >
+
+                <ListView.Behaviors>
+                    <behavior:EventToCommandBehavior
+                        EventName="ItemTapped"
+                        Command="{Binding ListTappedCommand}"/>
+                </ListView.Behaviors>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnSpacing="0" RowSpacing="0"
+                                  HeightRequest="75">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <Label 
+                                    HorizontalOptions="Center" 
+                                    Style="{StaticResource ClassTimeLabel}" 
+                                    Text="{Binding ClassTime, StringFormat='{0:H:mm}'}" />
+
+                                <Label
+                                    Grid.Column="2"
+                                    Margin="20,0"
+                                    Style="{StaticResource ClassNameLabel}"
+                                    Text="{Binding ClassName}" />
+
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    Margin="20,0"
+                                    Style="{StaticResource ClassInstructorLabel}"
+                                    Text="{Binding Instructor}" />
+
+                                <BoxView
+                                    Grid.RowSpan="2"
+                                    Grid.Column="1"
+                                    BackgroundColor="{StaticResource TimelineColor}"
+                                    HorizontalOptions="Center"
+                                    IsVisible="{Binding IsLast, Converter={StaticResource NotBooleanConverter}}"
+                                    VerticalOptions="Fill"
+                                    WidthRequest="3" />
+
+                                <!--您能夠分辨出底下的 BoxView 中的 Converter 用法，與上面的 Converter 的用法上的差異-->
+                                <!--<BoxView
+                                    Grid.RowSpan="2"
+                                    Grid.Column="1"
+                                    BackgroundColor="{StaticResource TimelineColor}"
+                                    HorizontalOptions="Center"
+                                    IsVisible="{Binding IsLast, Converter={converters:NotBooleanConverter}}"
+                                    VerticalOptions="Fill"
+                                    WidthRequest="3" />-->
+
+                                <Image Grid.Column="1" Source="Bullet.png" />
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
