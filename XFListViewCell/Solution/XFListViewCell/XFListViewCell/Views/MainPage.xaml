@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFListViewCell.Views.MainPage"
+             Title="購物清單"
+             x:Name="ThisPage">
+
+    <Grid
+        RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout
+            Grid.Row="0"
+            Orientation="Horizontal"
+            Spacing="0"
+            >
+            <Label Text="合計金額:"
+                   VerticalOptions="Center"/>
+            <Label Text="{Binding TotalPrice}"
+                   VerticalOptions="Center"/>
+            <Label Text="元"
+                   VerticalOptions="Center"/>
+        </StackLayout>
+        <Button Text="計算"
+                Grid.Row="0"
+                VerticalOptions="Center"
+                HorizontalOptions="End"
+                Command="{Binding ComputeCommand}"/>
+
+        <ListView
+            ItemsSource="{Binding ProductsSource}"
+            Grid.Row="1"
+            HasUnevenRows="True"
+            SeparatorVisibility="None"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid
+                            RowSpacing="0" ColumnSpacing="0"
+                            >
+                            <StackLayout
+                                Spacing="0"
+                                Orientation="Vertical"
+                                >
+                                <Label Text="{Binding Name}"
+                                   FontSize="24"/>
+                                <Label Text="{Binding Price, StringFormat='單價: {0} 元'}"
+                                       FontSize="20"
+                                       TextColor="DeepPink"
+                                       />
+                                <StackLayout
+                                    Spacing="0"
+                                    Orientation="Horizontal">
+                                    <Label Text="數量"
+                                           Margin="0,0,10,0"
+                                           VerticalOptions="Center"/>
+                                    <Entry Text="{Binding Qty}"
+                                           HorizontalOptions="Fill"/>
+                                </StackLayout>
+                                <BoxView Color="SkyBlue"
+                                         HorizontalOptions="Fill" VerticalOptions="End"
+                                         HeightRequest="2"/>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>
