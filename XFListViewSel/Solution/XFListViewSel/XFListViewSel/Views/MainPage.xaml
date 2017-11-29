@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              x:Class="XFListViewSel.Views.MainPage"
-             Title="{Binding Title}">
+             Title="ListView的單選與多選">
 
     <Grid
         RowSpacing="0" ColumnSpacing="0"
@@ -18,7 +18,7 @@
             Spacing="0"
             Orientation="Horizontal">
             <Label Text="多選模式" VerticalOptions="Center"/>
-            <Switch IsToggled="{Binding MultipleSelecte}">
+            <Switch IsToggled="{Binding MultipleSelecte}" >
                 <Switch.Behaviors>
                     <behavior:EventToCommandBehavior
                         EventName="Toggled"
