@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFStyleEmu.Views.MainPage"
+             Title="儲存帳密的資源/樣式綜合演練">
+
+    <StackLayout >
+    </StackLayout>
+
+</ContentPage>
