@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFDynaRes.Views.MainPage"
+             Title="XAML 動態資源的使用">
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="XAML 動態資源的使用" />
+        <Label Text="靜態資源"
+               />
+        <Label Text="動態資源"
+               />
+        <Label Text="靜態屬性"
+               />
+
+        <BoxView
+            Margin="0,15"
+            Color="Transparent"
+            HeightRequest="1" VerticalOptions="Start" HorizontalOptions="Fill"/>
+
+        <Button x:Name="btnDynamicRes" Text="變更動態" />
+        <Button x:Name="btnStaticObject" Text="變更靜態屬性" />
+        <Button Text="Reload" Command="{Binding ReloadCommand}"/>
+    </StackLayout>
+
+</ContentPage>
