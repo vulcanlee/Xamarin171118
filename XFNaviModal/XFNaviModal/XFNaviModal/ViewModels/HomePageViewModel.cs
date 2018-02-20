@@ -17,6 +17,8 @@ namespace XFNaviModal.ViewModels
         public DelegateCommand GoPage2NaviCommand { get; set; }
         public DelegateCommand GoPage2ModalCommand { get; set; }
         public DelegateCommand GoPage2Command { get; set; }
+        public DelegateCommand GoPage1NaviDrawerCommand { get; set; }
+        public DelegateCommand GoPage2NaviDrawerCommand { get; set; }
         private readonly INavigationService _navigationService;
 
         public HomePageViewModel(INavigationService navigationService)
@@ -46,6 +48,14 @@ namespace XFNaviModal.ViewModels
             GoPage2NaviCommand = new DelegateCommand(async () =>
             {
                 await _navigationService.NavigateAsync("NavigationPage/Page1Page/Page2Page", null, true);
+            });
+            GoPage1NaviDrawerCommand = new DelegateCommand(async () =>
+            {
+                await _navigationService.NavigateAsync("MD2Page/NavigationPage/Page1Page", null, true);
+            });
+            GoPage2NaviDrawerCommand = new DelegateCommand(async () =>
+            {
+                await _navigationService.NavigateAsync("MD2Page/NavigationPage/Page1Page/Page2Page", null, true);
             });
         }
 

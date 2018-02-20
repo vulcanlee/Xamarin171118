@@ -36,6 +36,7 @@ namespace XFNaviModal
             containerRegistry.RegisterForNavigation<Page2Page>();
             containerRegistry.RegisterForNavigation<Page3Page>();
             containerRegistry.RegisterForNavigation<MDPage>();
+            containerRegistry.RegisterForNavigation<MD2Page>();
         }
     }
 }
