@@ -10,12 +10,12 @@ using XFNavAware.Helpers;
 
 namespace XFNavAware.ViewModels
 {
-
     public class Page1PageViewModel : INotifyPropertyChanged, INavigationAware
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
         public DelegateCommand GoPage2Command { get; set; }
+        public DelegateCommand GoBackMainPageCommand { get; set; }
         public DelegateCommand ResetLogCommand { get; set; }
         public DelegateCommand ShowLogCommand { get; set; }
 
@@ -33,6 +33,10 @@ namespace XFNavAware.ViewModels
                 var fooPara = new NavigationParameters();
                 fooPara.Add("MyData", "Come from Page1");
                 _navigationService.NavigateAsync("Page2Page", fooPara);
+            });
+            GoBackMainPageCommand = new DelegateCommand(() =>
+            {
+                _navigationService.GoBackAsync();
             });
             ResetLogCommand = new DelegateCommand(() =>
             {
@@ -67,6 +71,8 @@ namespace XFNavAware.ViewModels
         public void OnNavigatedTo(NavigationParameters parameters)
         {
             MainHelper.WriteLog($"Page1 OnNavigatedTo");
+            MainHelper.WriteLog($"");
+            MainHelper.WriteLog($"Page1 InternalParameters Parameter:{Environment.NewLine}{parameters.CurrentInternalParameters()}");
             if (parameters.CurrentParameters() != "")
             {
                 MainHelper.WriteLog($"Page1 OnNavigatedTo Parameter:\r\n{parameters.CurrentParameters()}");
@@ -75,5 +81,4 @@ namespace XFNavAware.ViewModels
         }
 
     }
-
 }

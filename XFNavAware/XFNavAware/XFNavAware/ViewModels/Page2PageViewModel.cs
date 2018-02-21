@@ -5,13 +5,11 @@ using Prism.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
 using XFNavAware.Helpers;
 
 namespace XFNavAware.ViewModels
 {
-
     public class Page2PageViewModel : INotifyPropertyChanged, INavigationAware
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -65,7 +63,7 @@ namespace XFNavAware.ViewModels
         public void OnNavigatedFrom(NavigationParameters parameters)
         {
             MainHelper.WriteLog($"Page2 OnNavigatedFrom");
-            if(parameters.CurrentParameters()!="")
+            if (parameters.CurrentParameters() != "")
             {
                 MainHelper.WriteLog($"Page2 OnNavigatedFrom Parameter:\r\n{parameters.CurrentParameters()}");
             }
@@ -85,6 +83,8 @@ namespace XFNavAware.ViewModels
         public void OnNavigatedTo(NavigationParameters parameters)
         {
             MainHelper.WriteLog($"Page2 OnNavigatedTo");
+            MainHelper.WriteLog($"");
+            MainHelper.WriteLog($"Page2 InternalParameters Parameter:{Environment.NewLine}{parameters.CurrentInternalParameters()}");
             if (parameters.CurrentParameters() != "")
             {
                 MainHelper.WriteLog($"Page2 OnNavigatedTo Parameter:\r\n{parameters.CurrentParameters()}");
@@ -93,5 +93,4 @@ namespace XFNavAware.ViewModels
         }
 
     }
-
 }

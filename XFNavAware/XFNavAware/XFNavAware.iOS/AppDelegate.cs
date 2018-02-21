@@ -1,7 +1,8 @@
 ﻿using Foundation;
+using Prism;
+using Prism.Ioc;
 using UIKit;
-using Microsoft.Practices.Unity;
-using Prism.Unity;
+
 
 namespace XFNavAware.iOS
 {
@@ -29,9 +30,9 @@ namespace XFNavAware.iOS
 
     public class iOSInitializer : IPlatformInitializer
     {
-        public void RegisterTypes(IUnityContainer container)
+        public void RegisterTypes(IContainerRegistry container)
         {
-            
+
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Microsoft.Practices.Unity;
-using Prism.Unity;
+using Prism;
+using Prism.Ioc;
 
 namespace XFNavAware.Droid
 {
@@ -23,7 +23,7 @@ namespace XFNavAware.Droid
 
     public class AndroidInitializer : IPlatformInitializer
     {
-        public void RegisterTypes(IUnityContainer container)
+        public void RegisterTypes(IContainerRegistry container)
         {
             // Register any platform specific implementations
         }

@@ -11,7 +11,6 @@ using XFNavAware.Helpers;
 
 namespace XFNavAware.ViewModels
 {
-
     public class MainPageViewModel : INotifyPropertyChanged, INavigationAware
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -77,6 +76,8 @@ namespace XFNavAware.ViewModels
         public void OnNavigatedTo(NavigationParameters parameters)
         {
             MainHelper.WriteLog($"MainPage OnNavigatedTo");
+            MainHelper.WriteLog($"");
+            MainHelper.WriteLog($"MainPage InternalParameters Parameter:{Environment.NewLine}{parameters.CurrentInternalParameters()}");
             if (parameters.CurrentParameters() != "")
             {
                 MainHelper.WriteLog($"MainPage OnNavigatedTo Parameter:\r\n{parameters.CurrentParameters()}");
@@ -85,5 +86,4 @@ namespace XFNavAware.ViewModels
         }
 
     }
-
 }

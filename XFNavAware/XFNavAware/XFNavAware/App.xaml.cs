@@ -1,9 +1,10 @@
-﻿using XFNavAware.ViewModels;
+﻿using Prism;
+using Prism.Ioc;
+using XFNavAware.ViewModels;
 using XFNavAware.Views;
-using Microsoft.Practices.Unity;
-using Prism.Unity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Prism.Unity;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace XFNavAware
@@ -26,12 +27,12 @@ namespace XFNavAware
             await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
-        protected override void RegisterTypes()
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            Container.RegisterTypeForNavigation<NavigationPage>();
-            Container.RegisterTypeForNavigation<MainPage>();
-            Container.RegisterTypeForNavigation<Page1Page>();
-            Container.RegisterTypeForNavigation<Page2Page>();
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<MainPage>();
+            containerRegistry.RegisterForNavigation<Page1Page>();
+            containerRegistry.RegisterForNavigation<Page2Page>();
         }
     }
 }

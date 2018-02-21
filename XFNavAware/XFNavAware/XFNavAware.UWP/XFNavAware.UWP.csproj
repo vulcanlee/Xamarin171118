@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{2546B554-4BDC-47B8-84C3-E8AA51594955}</ProjectGuid>
+    <ProjectGuid>{4B151F30-92A6-4467-87AA-58A716648B06}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XFNavAware.UWP</RootNamespace>
@@ -124,9 +124,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup> 
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1" />
-    <PackageReference Include="Xamarin.Forms" Version="2.4.0.282" />
-    <PackageReference Include="Prism.Unity.Forms" Version="7.0.0.168-pre" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.6" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
+    <PackageReference Include="Prism.Unity.Forms" Version="7.0.0.362" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XFNavAware\XFNavAware.csproj">

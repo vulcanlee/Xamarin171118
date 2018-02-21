@@ -17,5 +17,8 @@
         <Label Text="Welcome to Xamarin Forms and Prism!" />
         <Button Text="切換 Page2"
                 Command="{Binding GoPage2Command}"/>
+        <Button Text="回到 MainPage"
+                Command="{Binding GoBackMainPageCommand}"/>
     </StackLayout>
+  
 </ContentPage>

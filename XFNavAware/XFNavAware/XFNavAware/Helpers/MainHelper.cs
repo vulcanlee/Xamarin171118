@@ -1,6 +1,7 @@
 ﻿using Prism.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,7 @@ namespace XFNavAware.Helpers
             {
                 NavigationLogs += Environment.NewLine + log;
             }
-            Console.WriteLine(log);
+            Console.WriteLine($"____________ {log}");
         }
 
         public static async Task ShowLog(IPageDialogService dialogService)

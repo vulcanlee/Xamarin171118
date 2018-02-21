@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{448DEB13-CBC7-464A-9148-7A45DFC5A632}</ProjectGuid>
+    <ProjectGuid>{C5F31EEA-9CF7-44D8-9B1D-980716A70384}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>XFNavAware.iOS</RootNamespace>
@@ -120,8 +120,8 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="2.4.0.282" />
-    <PackageReference Include="Prism.Unity.Forms" Version="7.0.0.168-pre" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
+    <PackageReference Include="Prism.Unity.Forms" Version="7.0.0.362" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XFNavAware\XFNavAware.csproj">

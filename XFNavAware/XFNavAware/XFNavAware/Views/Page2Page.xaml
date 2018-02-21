@@ -23,4 +23,5 @@
         <Button Text="回首頁有參數"
                 Command="{Binding GoHomeParaCommand}"/>
     </StackLayout>
+  
 </ContentPage>
